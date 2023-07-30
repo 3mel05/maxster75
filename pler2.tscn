@@ -2,7 +2,7 @@
 
 [ext_resource path="res://1 Biker/Biker_idle.png" type="Texture" id=1]
 [ext_resource path="res://pler2.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://1690233155054.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.5, 15.5 )
@@ -141,23 +141,25 @@ anims/move = SubResource( 6 )
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2( 0.497, 0.475 )
 
-[node name="200" type="CanvasLayer" parent="."]
+[node name="201" type="CanvasLayer" parent="."]
 layer = 10
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="200"]
-position = Vector2( 261, 310 )
-scale = Vector2( 1.5, 1.5 )
-normal = ExtResource( 4 )
+[node name="TouchScreenButton" type="TouchScreenButton" parent="201"]
+position = Vector2( 261, 315 )
+scale = Vector2( 0.364, 0.364 )
+normal = ExtResource( 3 )
 action = "ui_right"
 
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="200"]
-position = Vector2( 845, 310 )
-scale = Vector2( 1.5, 1.5 )
-normal = ExtResource( 4 )
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="201"]
+position = Vector2( 845, 400 )
+rotation = -1.5708
+scale = Vector2( 0.364, 0.364 )
+normal = ExtResource( 3 )
 action = "ui_up"
 
-[node name="TouchScreenButton3" type="TouchScreenButton" parent="200"]
-position = Vector2( 49, 310 )
-scale = Vector2( 1.5, 1.5 )
-normal = ExtResource( 4 )
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="201"]
+position = Vector2( 147, 421 )
+rotation = -3.15032
+scale = Vector2( 0.364, 0.364 )
+normal = ExtResource( 3 )
 action = "ui_left"

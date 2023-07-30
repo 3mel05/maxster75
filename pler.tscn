@@ -3,7 +3,7 @@
 [ext_resource path="res://pler.gd" type="Script" id=1]
 [ext_resource path="res://1 Biker/Biker_idle.png" type="Texture" id=2]
 [ext_resource path="res://2 Background/Background.png" type="Texture" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://1690233155054.png" type="Texture" id=4]
 [ext_resource path="res://Minecraftia.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -176,19 +176,21 @@ layer = 10
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="200"]
 position = Vector2( 261, 449 )
-scale = Vector2( 1.5, 1.5 )
+scale = Vector2( 0.364, 0.364 )
 normal = ExtResource( 4 )
 action = "d"
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="200"]
-position = Vector2( 845, 441 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 845, 550 )
+rotation = -1.5708
+scale = Vector2( 0.364, 0.364 )
 normal = ExtResource( 4 )
 action = "ui_accept"
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="200"]
-position = Vector2( 49, 450 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 147, 558 )
+rotation = -3.15032
+scale = Vector2( 0.364, 0.364 )
 normal = ExtResource( 4 )
 action = "a"
 
