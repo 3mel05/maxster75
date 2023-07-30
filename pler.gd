@@ -26,3 +26,11 @@ func _physics_process(delta):
 func Void():
 	if global_position.y >= 300:
 		get_tree().reload_current_scene()
+
+
+
+
+
+func _on_Button_pressed():
+	get_tree().change_scene("res://min mnio.tscn")
+	pass # Replace with function body

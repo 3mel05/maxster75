@@ -145,19 +145,19 @@ zoom = Vector2( 0.497, 0.475 )
 layer = 10
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="200"]
-position = Vector2( 292, 278 )
-scale = Vector2( 2, 2 )
+position = Vector2( 261, 310 )
+scale = Vector2( 1.5, 1.5 )
 normal = ExtResource( 4 )
 action = "ui_right"
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="200"]
-position = Vector2( 858, 279 )
-scale = Vector2( 2, 2 )
+position = Vector2( 845, 310 )
+scale = Vector2( 1.5, 1.5 )
 normal = ExtResource( 4 )
 action = "ui_up"
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="200"]
-position = Vector2( 45, 271 )
-scale = Vector2( 2, 2 )
+position = Vector2( 49, 310 )
+scale = Vector2( 1.5, 1.5 )
 normal = ExtResource( 4 )
 action = "ui_left"

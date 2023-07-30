@@ -1,11 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://pler.tscn" type="PackedScene" id=1]
 [ext_resource path="res://pler2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://1 Tiles/IndustrialTile_03.png" type="Texture" id=3]
+[ext_resource path="res://1 Tiles/IndustrialTile_18.png" type="Texture" id=4]
+[ext_resource path="res://StaticBody2D.gd" type="Script" id=5]
+[ext_resource path="res://1 Tiles/IndustrialTile_36.png" type="Texture" id=6]
+[ext_resource path="res://StaticBody2D2.gd" type="Script" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 0, 0, 32, 0, 31.25, 14.25, 0, 14.25 )
 
 [sub_resource type="TileSet" id=7]
 0/name = "IndustrialTile_03.png 0"
@@ -29,6 +36,33 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
+1/name = "IndustrialTile_18.png 1"
+1/texture = ExtResource( 4 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 32, 32 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 9 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 15, 68.5 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 14, 10 )
 
 [node name="wolrd" type="Node2D"]
 
@@ -38,7 +72,66 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 tile_set = SubResource( 7 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( -327661, 0, 0, -327657, 0, 0, -196615, 0, 0, -196614, 0, 0, -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262141, 0, 0, -262140, 0, 0, -262139, 0, 0, -262136, 0, 0, -262131, 0, 0, -262130, 0, 0, -262129, 0, 0, -262128, 0, 0, -196582, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65545, 0, 0, 65548, 0, 0, 65551, 0, 0, 65556, 0, 0, 65559, 0, 0, 65560, 0, 0, 65561, 0, 0, 65562, 0, 0, 65563, 0, 0, 65564, 0, 0, 65565, 0, 0, 65566, 0, 0, 65567, 0, 0, 65568, 0, 0, 65569, 0, 0, 65570, 0, 0, 65571, 0, 0 )
+tile_data = PoolIntArray( -327661, 0, 0, -327657, 0, 0, -196615, 0, 0, -196614, 0, 0, -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262141, 0, 0, -262140, 0, 0, -262139, 0, 0, -262136, 0, 0, -262131, 0, 0, -262130, 0, 0, -262129, 0, 0, -262128, 0, 0, -196582, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65545, 0, 0, 65546, 1610612736, 0, 65547, 1610612736, 0, 65548, 0, 0, 65551, 0, 0, 65556, 0, 0, 65559, 0, 0, 65560, 0, 0, 65561, 0, 0, 65562, 0, 0, 65563, 0, 0, 65564, 0, 0, 65565, 0, 0, 65566, 0, 0, 65567, 0, 0, 65568, 0, 0, 65569, 0, 0, 65570, 0, 0, 65571, 0, 0 )
 
 [node name="pler2" parent="." instance=ExtResource( 2 )]
 position = Vector2( -58, -173 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 143, -137 )
+scale = Vector2( 1.147, 0.931 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -0.871834, 115.098 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( -0.871834, 112.598 )
+scale = Vector2( 1, 4.327 )
+texture = ExtResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+position = Vector2( -0.871834, 112.598 )
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+position = Vector2( 0.871834, -112.598 )
+shape = SubResource( 11 )
+
+[node name="Sprite2" type="Sprite" parent="StaticBody2D"]
+position = Vector2( -0.871834, 8.59293 )
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 273, -299 )
+scale = Vector2( 1.147, 0.931 )
+script = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( -0.871834, 115.098 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D2"]
+position = Vector2( -0.871834, 112.598 )
+scale = Vector2( 1, 4.327 )
+texture = ExtResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D2"]
+position = Vector2( 80.2092, 459.721 )
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/Area2D"]
+position = Vector2( 0.871834, -112.598 )
+shape = SubResource( 11 )
+
+[node name="Sprite2" type="Sprite" parent="StaticBody2D2"]
+position = Vector2( 81.0811, 352.309 )
+texture = ExtResource( 4 )
+
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="pler" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="StaticBody2D2/Area2D" to="pler" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="StaticBody2D2/Area2D" to="StaticBody2D2" method="_on_Area2D_body_entered"]
