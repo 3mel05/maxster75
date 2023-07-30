@@ -1,0 +1,163 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://1 Biker/Biker_idle.png" type="Texture" id=1]
+[ext_resource path="res://pler2.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8.5, 15.5 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 4, 14, 19, 34 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:centered")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "flot"
+length = 0.6
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "gamp"
+length = 0.6
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 3, 15, 29, 32 ), Rect2( 51, 12, 26, 32 ), Rect2( 99, 15, 26, 31 ), Rect2( 146, 16, 27, 32 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "idil"
+length = 0.65
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 4, 14, 19, 34 ), Rect2( 51, 14, 20, 34 ), Rect2( 99, 14, 20, 34 ), Rect2( 148, 14, 19, 34 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "move"
+length = 0.9
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 3, 16, 25, 32 ), Rect2( 56, 16, 18, 32 ), Rect2( 99, 17, 29, 31 ), Rect2( 146, 16, 33, 32 ), Rect2( 200, 16, 18, 32 ), Rect2( 243, 17, 24, 31 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:centered")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="pler2" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.5, -0.5 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 4, 14, 19, 34 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "gamp"
+anims/RESET = SubResource( 2 )
+anims/flot = SubResource( 3 )
+anims/gamp = SubResource( 4 )
+anims/idil = SubResource( 5 )
+anims/move = SubResource( 6 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2( 0.497, 0.475 )
+
+[node name="200" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="200"]
+position = Vector2( 292, 278 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 4 )
+action = "ui_right"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="200"]
+position = Vector2( 858, 279 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 4 )
+action = "ui_up"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="200"]
+position = Vector2( 45, 271 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 4 )
+action = "ui_left"

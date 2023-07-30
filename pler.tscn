@@ -1,0 +1,180 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://pler.gd" type="Script" id=1]
+[ext_resource path="res://1 Biker/Biker_idle.png" type="Texture" id=2]
+[ext_resource path="res://2 Background/Background.png" type="Texture" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8.5, 15.5 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 4, 14, 19, 34 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:centered")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "flot"
+length = 0.6
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "gamp"
+length = 0.6
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 3, 15, 29, 32 ), Rect2( 51, 12, 26, 32 ), Rect2( 99, 15, 26, 31 ), Rect2( 146, 16, 27, 32 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idil"
+length = 0.65
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 4, 14, 19, 34 ), Rect2( 51, 14, 20, 34 ), Rect2( 99, 14, 20, 34 ), Rect2( 148, 14, 19, 34 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "move"
+length = 0.9
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 3, 16, 25, 32 ), Rect2( 56, 16, 18, 32 ), Rect2( 99, 17, 29, 31 ), Rect2( 146, 16, 33, 32 ), Rect2( 200, 16, 18, 32 ), Rect2( 243, 17, 24, 31 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:centered")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="pler" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.5, -0.5 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 4, 14, 19, 34 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "gamp"
+anims/RESET = SubResource( 2 )
+anims/flot = SubResource( 6 )
+anims/gamp = SubResource( 5 )
+anims/idil = SubResource( 3 )
+anims/move = SubResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -16, -113 )
+current = true
+zoom = Vector2( 0.765, 0.765 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+motion_offset = Vector2( -100, 0 )
+motion_mirroring = Vector2( 400, 1 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -42, -7 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 3 )
+centered = false
+region_rect = Rect2( 0, 0, 200, 0 )
+
+[node name="200" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="200"]
+position = Vector2( 261, 449 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 4 )
+action = "d"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="200"]
+position = Vector2( 845, 441 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 4 )
+action = "ui_accept"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="200"]
+position = Vector2( 49, 450 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 4 )
+action = "a"
